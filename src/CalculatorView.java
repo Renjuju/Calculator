@@ -49,6 +49,16 @@ public class CalculatorView extends JFrame{
         divide = new javax.swing.JButton();
         mult = new javax.swing.JButton();
 
+        button1.addActionListener(setActions("1"));
+        button2.addActionListener(setActions("2"));
+        button3.addActionListener(setActions("3"));
+        button4.addActionListener(setActions("4"));
+        button5.addActionListener(setActions("5"));
+        button6.addActionListener(setActions("6"));
+        button7.addActionListener(setActions("7"));
+        button8.addActionListener(setActions("8"));
+        button9.addActionListener(setActions("9"));
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 51, 0));
         setForeground(new java.awt.Color(0, 51, 51));
@@ -189,14 +199,17 @@ public class CalculatorView extends JFrame{
         pack();
 	}
 	
-    private void setActions(final String val) {
+    private ActionListener setActions(final String val) {
         ActionListener listener = new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				String text = textField.getText() + val;
+				textField.setText(text);
+				
 			}
 		};
+		return listener;
     }
 
 }
