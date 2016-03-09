@@ -1,13 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Vector;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class CalculatorView extends JFrame{
@@ -49,6 +43,7 @@ public class CalculatorView extends JFrame{
         divide = new javax.swing.JButton();
         mult = new javax.swing.JButton();
 
+        button0.addActionListener(setActions("0"));
         button1.addActionListener(setActions("1"));
         button2.addActionListener(setActions("2"));
         button3.addActionListener(setActions("3"));
@@ -58,6 +53,20 @@ public class CalculatorView extends JFrame{
         button7.addActionListener(setActions("7"));
         button8.addActionListener(setActions("8"));
         button9.addActionListener(setActions("9"));
+        
+        plus.addActionListener(setActions("+"));
+        minus.addActionListener(setActions("-"));
+        mult.addActionListener(setActions("*"));
+        divide.addActionListener(setActions("/"));
+        
+        clear.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textField.setText("");
+			}
+		});
+        
         
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 51, 0));
@@ -206,10 +215,13 @@ public class CalculatorView extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				String text = textField.getText() + val;
 				textField.setText(text);
-				
 			}
 		};
 		return listener;
+    }
+    
+    public void setAction() {
+    	
     }
 
 }
