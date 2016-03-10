@@ -219,9 +219,28 @@ public class CalculatorView extends JFrame{
 		};
 		return listener;
     }
-    
-    public void setAction() {
-    	
+
+    public void setEqualsButtonAction(ActionListener listener) {
+        equals.addActionListener(listener);
     }
 
+    public void setAddButtonAction(ActionListener listener) {
+        plus.addActionListener(listener);
+    }
+
+    public void setMultButtonAction(ActionListener listener) {
+        mult.addActionListener(listener);
+    }
+
+    public void setDivideButtonAction(ActionListener listener) {
+        divide.addActionListener(listener);
+    }
+
+    public void setMinusButtonAction(ActionListener listener) {
+        minus.addActionListener(listener);
+    }
+
+    public String getTextFieldText() {
+        return textField.getText();
+    }
 }
