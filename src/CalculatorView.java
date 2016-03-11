@@ -240,7 +240,7 @@ public class CalculatorView extends JFrame{
         minus.addActionListener(listener);
     }
 
-    public String getTextFieldText() {
-        return textField.getText();
+    public JTextField getTextField() {
+        return textField;
     }
 }
