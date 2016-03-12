@@ -22,7 +22,7 @@ public class CalculatorController {
 //				^([-+/*]\d+(\.\d+)?)*
 				String equation = view.getTextField().getText();
 
-				String pattern = "^([-+/*]\\d+(\\.\\d+)?)*";
+				String pattern = "(-?)(\\d+)(\\+|-|\\*|/)(-?)(\\d+)";
 
 				// Create a Pattern object
 				Pattern r = Pattern.compile(pattern);
@@ -30,12 +30,23 @@ public class CalculatorController {
 				// Now create matcher object.
 				Matcher m = r.matcher(equation);
 				if(m.find()) {
-					System.out.println("Found");
-					System.out.println(m.group(2));
+					System.out.println(m.group());
 				}
 
-				if(equation.matches("^([-+/*]\\d+(\\.\\d+)?)*")) {
-					System.out.println("valid");
+				if(equation.matches(pattern)) {
+					String[] splitStrings = (equation.split("((?<=[+-/*])|(?=[+-/*]))"));
+					int first = Integer.parseInt(splitStrings[0]);
+					String op = splitStrings[1];
+					int second = Integer.parseInt(splitStrings[2]);
+					if(op.equals("+")) {
+						System.out.println(first + op + second);
+						model.add(first, second);
+						Integer value = model.getCalculatedValue();
+						view.setTextField(value.toString());
+					}
+					Double val = Double.parseDouble(equation);
+					view.setTextField(val.toString());
+
 				} else {
 					System.out.println("invalid");
 

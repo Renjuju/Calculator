@@ -243,4 +243,8 @@ public class CalculatorView extends JFrame{
     public JTextField getTextField() {
         return textField;
     }
+
+    public void setTextField(String text) {
+        textField.setText(text);
+    }
 }
