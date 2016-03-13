@@ -20,7 +20,7 @@ public class CalculatorModel implements Visitable {
 	}
 
 	public Double getCalculatedValue() {
-		return this.calculatedValue;
+		return calculatedValue;
 	}
 
 	@Override
