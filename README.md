@@ -6,7 +6,7 @@
 * Usuable UI
 
 ##Installation
-* Any java idea
+* Any Java IDE
 * Compile and run
 
 ##How to run?
