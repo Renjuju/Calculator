@@ -1,4 +1,7 @@
+package CompositeServer;
+import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,6 +20,8 @@ public class CalculatorServer extends Socket {
 		serverSocket = new ServerSocket(port);
 		System.out.println("Waiting for clients...");
 		Socket client = serverSocket.accept();
+		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(client.getOutputStream()));
+		writer.write("Hello. You are connected to a Simple Socket Server. What is your name?");
 	}
 
 }

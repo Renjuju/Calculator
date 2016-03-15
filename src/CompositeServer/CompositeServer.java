@@ -1,3 +1,4 @@
+package CompositeServer;
 import java.util.Vector;
 
 public class CompositeServer implements Socket {

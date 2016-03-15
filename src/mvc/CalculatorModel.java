@@ -1,3 +1,8 @@
+package mvc;
+
+import Visitor.CalculationVisitor;
+import Visitor.Visitable;
+import Visitor.Visitor;
 
 public class CalculatorModel implements Visitable {
 	private Double calculatedValue;

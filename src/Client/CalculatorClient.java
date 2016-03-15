@@ -1,4 +1,7 @@
+package Client;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.Socket;
 
 public class CalculatorClient extends Socket {
@@ -20,4 +23,15 @@ public class CalculatorClient extends Socket {
 			e.printStackTrace();
 		}
 	}
+
+	public void readResponse() throws IOException {
+		String userInput;
+		BufferedReader stdIn = new BufferedReader(new InputStreamReader(client.getInputStream()));
+
+		System.out.println("Response from server:");
+		while ((userInput = stdIn.readLine()) != null) {
+			System.out.println(userInput);
+		}
+	}
+
 }
